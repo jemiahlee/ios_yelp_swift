@@ -6,6 +6,7 @@
 //  Copyright © 2016 Timothy Lee. All rights reserved.
 //
 
+import AFNetworking
 import UIKit
 
 class ListingCell: UITableViewCell {
@@ -16,23 +17,42 @@ class ListingCell: UITableViewCell {
     @IBOutlet weak var ratingImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ratingCountLabel: UILabel!
-    @IBOutlet weak var distanceLabel: UIView!
-    @IBOutlet weak var spendyLabel: UIView!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var expenseLabel: UILabel!
+
     
     internal var listing: Business! {
         didSet {
             classLabel.text = listing.categories!
             nameLabel.text = listing.name!
             ratingCountLabel.text = "\(listing.reviewCount!) reviews"
+            addressLabel.text = listing.address!
+            distanceLabel.text = listing.distance!
+
+            let ratingImageRequest = NSURLRequest(URL: listing.ratingImageURL!)
+            ratingImageView.setImageWithURLRequest(ratingImageRequest, placeholderImage: nil,
+                success: { (request:NSURLRequest,response:NSHTTPURLResponse?, image:UIImage) -> Void in
+                    self.ratingImageView.image = image
+                }, failure: { (request, response,error) -> Void in
+                }
+            )
+
+            let listingImageRequest = NSURLRequest(URL: listing.imageURL!)
+            listingImageView.setImageWithURLRequest(listingImageRequest, placeholderImage: nil,
+                success: { (request:NSURLRequest,response:NSHTTPURLResponse?, image:UIImage) -> Void in
+                    self.listingImageView.image = image
+                }, failure: { (request, response,error) -> Void in
+                }
+            )
+
+            listingImageView.layer.cornerRadius = 3
+            listingImageView.clipsToBounds = true
+
         }
     }
     
     func setListingValue(listing: Business){
         self.listing = listing
-        
-        classLabel.text = listing.categories!
-        nameLabel.text = listing.name!
-        ratingCountLabel.text = "\(listing.reviewCount!) reviews"
     }
     
     override func awakeFromNib() {

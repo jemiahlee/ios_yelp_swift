@@ -17,8 +17,8 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //listingTableView.delegate = self
-        //listingTableView.dataSource = self
+        listingTableView.delegate = self
+        listingTableView.dataSource = self
         
         Business.searchWithTerm("Thai", completion: { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
@@ -27,9 +27,10 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
                 print(business.name!)
                 print(business.address!)
             }
+
+            self.listingTableView.reloadData()
         })
 
-        listingTableView.reloadData()
 
 /* Example of Yelp search with more search options specified
         Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
@@ -46,18 +47,17 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ListingCell", forIndexPath: indexPath) as! ListingCell
-        print("Setting up cell #\(indexPath.row)")
         cell.listing = businesses[indexPath.row]
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let data = businesses {
-            return data.count
+        if let business = businesses {
+            return business.count
         }
         return 0
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
