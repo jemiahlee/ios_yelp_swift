@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="c76-vW-fVH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sPd-NZ-Li5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -21,10 +21,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="150" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Qv4-Rm-cjp">
                                 <rect key="frame" x="0.0" y="40" width="600" height="560"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListingCell" rowHeight="150" id="Xzr-8a-xNe" customClass="ListingCell" customModule="Yelp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="150"/>
+                                        <rect key="frame" x="0.0" y="114" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xzr-8a-xNe" id="Rze-xZ-ah6">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
@@ -164,11 +164,30 @@
                             <constraint firstItem="Qv4-Rm-cjp" firstAttribute="leading" secondItem="bjD-ph-nIZ" secondAttribute="leading" id="eZ0-kj-xWY"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="G2j-nO-sJt"/>
                     <connections>
                         <outlet property="listingTableView" destination="Qv4-Rm-cjp" id="mb4-78-pFz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kHH-YS-Ah2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="-617"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="I79-26-Ogd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sPd-NZ-Li5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IY4-tm-fOE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="c76-vW-fVH" kind="relationship" relationship="rootViewController" id="d0f-Kc-QpD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WAb-Wc-8wo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="243" y="-617"/>
         </scene>

@@ -17,8 +17,15 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        navigationItem.titleView = searchBar
+
+
         listingTableView.delegate = self
         listingTableView.dataSource = self
+        listingTableView.estimatedRowHeight = 100
+        listingTableView.rowHeight = UITableViewAutomaticDimension
         
         Business.searchWithTerm("Thai", completion: { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
