@@ -18,13 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="150" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Qv4-Rm-cjp">
-                                <rect key="frame" x="0.0" y="40" width="600" height="560"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qv4-Rm-cjp">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="560"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListingCell" rowHeight="150" id="Xzr-8a-xNe" customClass="ListingCell" customModule="Yelp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="114" width="600" height="150"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xzr-8a-xNe" id="Rze-xZ-ah6">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
@@ -121,7 +121,7 @@
                                                 <constraint firstItem="tFG-5P-h2O" firstAttribute="leading" secondItem="Rze-xZ-ah6" secondAttribute="leading" constant="8" id="abs-oS-KJa"/>
                                                 <constraint firstItem="vD7-2c-WzN" firstAttribute="top" secondItem="Rze-xZ-ah6" secondAttribute="top" constant="8" id="fYT-95-4QY"/>
                                                 <constraint firstAttribute="trailing" secondItem="HYa-fO-I19" secondAttribute="trailing" constant="8" id="fbe-4j-9i1"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="WDw-A3-6TW" secondAttribute="bottom" constant="40" id="iLS-Jr-D6s"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="WDw-A3-6TW" secondAttribute="bottom" constant="8" id="iLS-Jr-D6s"/>
                                                 <constraint firstAttribute="trailing" secondItem="HYa-fO-I19" secondAttribute="trailing" constant="8" id="kx1-Kk-rN6"/>
                                                 <constraint firstItem="vD7-2c-WzN" firstAttribute="top" secondItem="Rze-xZ-ah6" secondAttribute="top" constant="14" id="lKS-9M-yKv"/>
                                                 <constraint firstItem="HYa-fO-I19" firstAttribute="top" secondItem="vD7-2c-WzN" secondAttribute="bottom" constant="10" id="oh4-vQ-blG"/>
@@ -159,7 +159,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Qv4-Rm-cjp" secondAttribute="trailing" id="02z-2v-iZ6"/>
-                            <constraint firstItem="Qv4-Rm-cjp" firstAttribute="top" secondItem="bjD-ph-nIZ" secondAttribute="top" constant="40" id="Aka-8H-uyP"/>
+                            <constraint firstItem="Qv4-Rm-cjp" firstAttribute="top" secondItem="bjD-ph-nIZ" secondAttribute="top" id="K8Z-DX-CNN"/>
                             <constraint firstItem="fCs-lY-KAS" firstAttribute="top" secondItem="Qv4-Rm-cjp" secondAttribute="bottom" id="a6k-Dz-UD3"/>
                             <constraint firstItem="Qv4-Rm-cjp" firstAttribute="leading" secondItem="bjD-ph-nIZ" secondAttribute="leading" id="eZ0-kj-xWY"/>
                         </constraints>
