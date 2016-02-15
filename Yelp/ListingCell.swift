@@ -36,17 +36,18 @@ class ListingCell: UITableViewCell {
                 }, failure: { (request, response,error) -> Void in
                 }
             )
+            if let listingImageUrl = listing.imageURL {
+                let listingImageRequest = NSURLRequest(URL: listingImageUrl)
+                listingImageView.setImageWithURLRequest(listingImageRequest, placeholderImage: nil,
+                    success: { (request:NSURLRequest,response:NSHTTPURLResponse?, image:UIImage) -> Void in
+                        self.listingImageView.image = image
+                    }, failure: { (request, response,error) -> Void in
+                    }
+                )
 
-            let listingImageRequest = NSURLRequest(URL: listing.imageURL!)
-            listingImageView.setImageWithURLRequest(listingImageRequest, placeholderImage: nil,
-                success: { (request:NSURLRequest,response:NSHTTPURLResponse?, image:UIImage) -> Void in
-                    self.listingImageView.image = image
-                }, failure: { (request, response,error) -> Void in
-                }
-            )
-
-            listingImageView.layer.cornerRadius = 3
-            listingImageView.clipsToBounds = true
+                listingImageView.layer.cornerRadius = 3
+                listingImageView.clipsToBounds = true
+            }
 
         }
     }
