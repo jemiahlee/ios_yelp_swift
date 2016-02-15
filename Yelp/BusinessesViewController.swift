@@ -20,11 +20,15 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .Plain,// barButtonSystemItem: .Add,
+            target: self, action: "goToFilterView:")
+
         searchBar = UISearchBar()
-        searchBar.sizeToFit()
+        //let searchBarButtonItem = UIBarButtonItem(customView: searchBar)
         searchBar.delegate = self
-        searchBar.hidden = true
-        // navigationItem.titleView = searchBar
+        //navigationItem.rightBarButtonItem = searchBarButtonItem
+        searchBar.sizeToFit()
+        navigationItem.titleView = searchBar
 
 /*        let searchButton = UIButton()
         searchButton.backgroundColor = UIColor.redColor()
@@ -45,9 +49,7 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
 
         navigationItem.leftBarButtonItem = searchBarButton
         navigationItem.rightBarButtonItem = filterBarButton */
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .Plain,// barButtonSystemItem: .Add,
-            target: self, action: "goToFilterView:")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .Plain, target: self, action: "openSearch:")
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .Plain, target: self, action: "openSearch:")
 
         listingTableView.delegate = self
         listingTableView.dataSource = self
@@ -74,11 +76,6 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
 
     func goToFilterView(sender: UIBarButtonItem?) {
         performSegueWithIdentifier("filterViewSegue", sender: sender)
-    }
-
-    func openSearch(sender: UIBarButtonItem?) {
-        print("Got a search button click")
-//        performSegueWithIdentifier(identifier: "segueNameHere", sender: self)
     }
 
     func performSearch(term: String){
