@@ -3,7 +3,6 @@
 //  Yelp
 //
 //  Created by Jeremiah Lee on 2/11/16.
-//  Copyright © 2016 Timothy Lee. All rights reserved.
 //
 
 import AFNetworking
@@ -18,7 +17,6 @@ class ListingCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ratingCountLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var expenseLabel: UILabel!
 
     
     internal var listing: Business! {
@@ -36,6 +34,7 @@ class ListingCell: UITableViewCell {
                 }, failure: { (request, response,error) -> Void in
                 }
             )
+            
             if let listingImageUrl = listing.imageURL {
                 let listingImageRequest = NSURLRequest(URL: listingImageUrl)
                 listingImageView.setImageWithURLRequest(listingImageRequest, placeholderImage: nil,

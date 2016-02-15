@@ -11,9 +11,11 @@ import UIKit
 class BusinessesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var listingTableView: UITableView!
-    
+
     var businesses: [Business]!
     var searchBar: UISearchBar!
+    var filterBarButton: UIBarButtonItem!
+    var searchBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +23,31 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
         searchBar = UISearchBar()
         searchBar.sizeToFit()
         searchBar.delegate = self
-        navigationItem.titleView = searchBar
+        searchBar.hidden = true
+        // navigationItem.titleView = searchBar
+
+/*        let searchButton = UIButton()
+        searchButton.backgroundColor = UIColor.redColor()
+        searchButton.titleLabel?.text = "Search"
+        searchButton.addTarget(self, action: "openSearch", forControlEvents: UIControlEvents.TouchDown)
+
+        searchBarButton = UIBarButtonItem()
+        searchBarButton = UIBarButtonItem(customView: searchButton)
+
+
+        let filterButton = UIButton()
+        filterButton.backgroundColor = UIColor.redColor()
+        filterButton.titleLabel?.text = "Filter"
+        filterButton.addTarget(self, action: "goToFilterView", forControlEvents: UIControlEvents.TouchDown)
+
+        filterBarButton = UIBarButtonItem()
+        filterBarButton = UIBarButtonItem(customView: filterButton)
+
+        navigationItem.leftBarButtonItem = searchBarButton
+        navigationItem.rightBarButtonItem = filterBarButton */
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .Plain,// barButtonSystemItem: .Add,
+            target: self, action: "goToFilterView:")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .Plain, target: self, action: "openSearch:")
 
         listingTableView.delegate = self
         listingTableView.dataSource = self
@@ -44,6 +70,15 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
         
         performSearch("")
         
+    }
+
+    func goToFilterView(sender: UIBarButtonItem?) {
+        performSegueWithIdentifier("filterViewSegue", sender: sender)
+    }
+
+    func openSearch(sender: UIBarButtonItem?) {
+        print("Got a search button click")
+//        performSegueWithIdentifier(identifier: "segueNameHere", sender: self)
     }
 
     func performSearch(term: String){
