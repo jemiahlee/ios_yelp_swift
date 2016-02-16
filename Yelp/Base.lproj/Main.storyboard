@@ -167,18 +167,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offering a deal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSZ-ln-9Fu">
-                                                    <rect key="frame" x="8" y="11" width="113" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fW4-ZR-zg4">
                                                     <rect key="frame" x="543" y="6" width="51" height="31"/>
                                                 </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offering a deal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSZ-ln-9Fu">
+                                                    <rect key="frame" x="33" y="11" width="102" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="hSZ-ln-9Fu" firstAttribute="leading" secondItem="K2u-dE-s9G" secondAttribute="leading" constant="8" id="4hL-zE-nKD"/>
+                                                <constraint firstItem="hSZ-ln-9Fu" firstAttribute="leading" secondItem="K2u-dE-s9G" secondAttribute="leading" constant="33" id="4hL-zE-nKD"/>
                                                 <constraint firstAttribute="bottom" secondItem="hSZ-ln-9Fu" secondAttribute="bottom" constant="11" id="J1d-En-wrf"/>
                                                 <constraint firstAttribute="trailing" secondItem="fW4-ZR-zg4" secondAttribute="trailing" constant="8" id="QCd-3v-mXL"/>
                                                 <constraint firstItem="fW4-ZR-zg4" firstAttribute="top" secondItem="K2u-dE-s9G" secondAttribute="top" constant="6" id="WCE-Gs-Ivr"/>

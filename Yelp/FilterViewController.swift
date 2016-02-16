@@ -21,6 +21,7 @@ class FilterViewController: UITableViewController {
     var selectedIndexPath : NSIndexPath?
     let config = YelpConfig.sharedInstance
 
+    let distances = ["Auto", "0.5 miles", "2 miles", "5 miles", ]
     override func viewDidLoad() {
         super.viewDidLoad()
 
