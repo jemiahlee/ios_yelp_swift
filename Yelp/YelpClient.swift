@@ -21,10 +21,11 @@ enum YelpSortMode: Int {
     case BestMatched = 0, Distance, HighestRated
 }
 
+
 class YelpClient: BDBOAuth1RequestOperationManager {
     var accessToken: String!
     var accessSecret: String!
-    
+
     class var sharedInstance : YelpClient {
         struct Static {
             static var token : dispatch_once_t = 0

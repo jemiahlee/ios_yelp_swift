@@ -16,79 +16,38 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
     var searchBar: UISearchBar!
     var filterBarButton: UIBarButtonItem!
     var searchBarButton: UIBarButtonItem!
+
+    let config = YelpConfig.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .Plain,// barButtonSystemItem: .Add,
-            target: self, action: "goToFilterView:")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .Plain, target: self, action: "goToFilterView:")
 
         searchBar = UISearchBar()
-        //let searchBarButtonItem = UIBarButtonItem(customView: searchBar)
         searchBar.delegate = self
-        //navigationItem.rightBarButtonItem = searchBarButtonItem
         searchBar.sizeToFit()
         navigationItem.titleView = searchBar
-
-/*        let searchButton = UIButton()
-        searchButton.backgroundColor = UIColor.redColor()
-        searchButton.titleLabel?.text = "Search"
-        searchButton.addTarget(self, action: "openSearch", forControlEvents: UIControlEvents.TouchDown)
-
-        searchBarButton = UIBarButtonItem()
-        searchBarButton = UIBarButtonItem(customView: searchButton)
-
-
-        let filterButton = UIButton()
-        filterButton.backgroundColor = UIColor.redColor()
-        filterButton.titleLabel?.text = "Filter"
-        filterButton.addTarget(self, action: "goToFilterView", forControlEvents: UIControlEvents.TouchDown)
-
-        filterBarButton = UIBarButtonItem()
-        filterBarButton = UIBarButtonItem(customView: filterButton)
-
-        navigationItem.leftBarButtonItem = searchBarButton
-        navigationItem.rightBarButtonItem = filterBarButton */
-        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .Plain, target: self, action: "openSearch:")
 
         listingTableView.delegate = self
         listingTableView.dataSource = self
         listingTableView.estimatedRowHeight = 100
         listingTableView.rowHeight = UITableViewAutomaticDimension
-        
-
-
-
-/* Example of Yelp search with more search options specified
-        Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
-            self.businesses = businesses
-            
-            for business in businesses {
-                print(business.name!)
-                print(business.address!)
-            }
-        }
-*/
-        
-        performSearch("")
-        
     }
 
     func goToFilterView(sender: UIBarButtonItem?) {
         performSegueWithIdentifier("filterViewSegue", sender: sender)
     }
 
-    func performSearch(term: String){
-        Business.searchWithTerm(term, completion: { (businesses: [Business]!, error: NSError!) -> Void in
+    override func viewDidAppear(animated: Bool) {
+        performSearch()
+    }
+
+    func performSearch(){
+        Business.searchWithTerm(config.searchTerm, sort: YelpSortMode(rawValue: config.sort), categories: [], deals: config.deals) { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
-            
-            for business in businesses {
-                print(business.name!)
-                print(business.address!)
-            }
-            
             self.listingTableView.reloadData()
-        })
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -104,10 +63,6 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
         return 0
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
     }
@@ -121,9 +76,10 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         // When there is no text, filteredData is the same as the original data
         if searchText.isEmpty {
-            performSearch("")
+            performSearch()
         } else {
-            performSearch(searchText)
+            config.searchTerm = searchText
+            performSearch()
         }
     }
 }
