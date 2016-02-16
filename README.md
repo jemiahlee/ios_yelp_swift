@@ -51,7 +51,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-[](jeremiah_lee_walkthrough.gif)
+![Walkthrough](jemiahlee_yelp_app.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
